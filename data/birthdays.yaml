@@ -45,6 +45,10 @@
 - name: Duc
   month: July
   day: 25
+  
+- name: Nora
+  month: August
+  day: 3
 
 - name: Wife
   month: August
