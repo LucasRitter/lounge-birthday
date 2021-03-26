@@ -6,6 +6,10 @@
   month: February 
   day: 14
 
+- name: Stranger
+  month: February
+  day: 28
+
 - name: Rooster
   month: March
   day: 26
@@ -19,6 +23,10 @@
   day: 6
 
 - name: Sparrow
+  month: May
+  day: 13
+
+- name: kessass
   month: May
   day: 13
 
@@ -45,6 +53,10 @@
 - name: Sarah
   month: June
   day: 30
+
+- name: Sukku
+  month: July
+  day: 2
 
 - name: Duc
   month: July
