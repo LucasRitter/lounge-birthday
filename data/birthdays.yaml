@@ -5,10 +5,18 @@
 - name: Rover
   month: February 
   day: 14
+  
+- name: Cloud
+  month: February
+  day: 17
 
 - name: Stranger
   month: February
   day: 28
+  
+- name: Serena
+  month: March
+  day: 8
 
 - name: Bun
   month: March
