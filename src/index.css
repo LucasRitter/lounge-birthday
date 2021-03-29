@@ -1,5 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
 
+@keyframes nice {
+    0% {
+        color: hsl(0deg, 100%, 50%);
+    }
+    17% {
+        color: hsl(60deg, 100%, 50%);
+    }
+    33% {
+        color: hsl(120deg, 100%, 50%);
+    }
+    50% {
+        color: hsl(180deg, 100%, 50%);
+    }
+    67% {
+        color: hsl(240deg, 100%, 50%);
+    }
+    83% {
+        color: hsl(300deg, 100%, 50%);
+    }
+    100% {
+        color: hsl(360deg, 100%, 50%);
+    }
+};
+
 body {
     padding: 32px;
     margin: 0;
@@ -24,3 +48,5 @@ body {
     width: 100%;
     max-width: 480px;
 }
+
+

@@ -37,7 +37,10 @@ const Birthday = ({ birthday }: { birthday: UpcomingBirthday }) => {
     return (
         <BirthdayContainer>
             <BirthdayName>{birthday.name} { birthday.nickname && <BirthdayNickname>{birthday.nickname}</BirthdayNickname>}</BirthdayName>
-            <BirthdayIn>{birthday.in} day{birthday.in !== 1 ? 's' : ''}</BirthdayIn>
+            <BirthdayDate>
+                { birthday.in === 69 && <Nice>nice</Nice>}
+                <BirthdayIn>{birthday.in} day{birthday.in !== 1 ? 's' : ''}</BirthdayIn>
+            </BirthdayDate>
         </BirthdayContainer>
     )
 }
@@ -60,6 +63,18 @@ const BirthdayNickname = styled.span`
     margin-left: 4px;
 `
 
+const BirthdayDate = styled.div`
+    display: flex;
+    flex-direction: row;
+`
+
 const BirthdayIn = styled.h3`
     opacity: 0.67;
+`
+
+const Nice = styled.h3`
+    animation: nice 1s infinite;
+    animation-timing-function: linear;
+    color: red;
+    margin-right: 8px;
 `
