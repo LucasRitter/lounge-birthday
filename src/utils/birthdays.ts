@@ -5,12 +5,14 @@ const DAY_LENGTH = 1000 * 60 * 60 * 24
 
 export interface Birthday {
     name: string
+    nickname?: string
     month: string | number
     day: number
 }
 
 export interface UpcomingBirthday {
     name: string
+    nickname?: string
     in: number
 }
 
@@ -34,14 +36,14 @@ export const getUpcomingBirthdays = (): UpcomingBirthday[] => {
             : x.month - 1
 
         if (monthNow === month && dayNow === day)
-            return { name: x.name, in: 0 }
+            return { name: x.name, nickname: x.nickname, in: 0 }
             
         if (monthNow >= month)
             nextYear = monthNow === month ? dayNow < day : true
 
         const birthdayDate = new Date(yearNow + Number(nextYear), month, day)
 
-        return { name: x.name, in: Math.ceil((birthdayDate.getTime() - dateNow.getTime()) / DAY_LENGTH) }
+        return { name: x.name, nickname: x.nickname, in: Math.ceil((birthdayDate.getTime() - dateNow.getTime()) / DAY_LENGTH) }
     })
 }
 

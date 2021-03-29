@@ -36,7 +36,7 @@ export const Upcoming = ({birthdays}: { birthdays: UpcomingBirthday[]}) => {
 const Birthday = ({ birthday }: { birthday: UpcomingBirthday }) => {
     return (
         <BirthdayContainer>
-            <BirthdayName>{birthday.name}</BirthdayName>
+            <BirthdayName>{birthday.name} { birthday.nickname && <BirthdayNickname>{birthday.nickname}</BirthdayNickname>}</BirthdayName>
             <BirthdayIn>{birthday.in} day{birthday.in !== 1 ? 's' : ''}</BirthdayIn>
         </BirthdayContainer>
     )
@@ -51,6 +51,13 @@ const BirthdayContainer = styled.div`
 const BirthdayName = styled.h3`
     font-weight: 800;
     margin-bottom: 0;
+`
+
+const BirthdayNickname = styled.span`
+    font-weight: 500;
+    font-size: 67%;
+    opacity: 0.67;
+    margin-left: 4px;
 `
 
 const BirthdayIn = styled.h3`
