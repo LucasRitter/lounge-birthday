@@ -47,6 +47,7 @@
   day: 15
 
 - name: Dean
+  nickname: Dean
   month: May
   day: 29
 
@@ -99,7 +100,8 @@
   month: September
   day: 13
 
-- name: Chocolate queen
+- name: Reina
+  nickname: Chocolate Queen
   month: October
   day: 5
 
