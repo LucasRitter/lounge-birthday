@@ -10,6 +10,10 @@
   month: February
   day: 28
 
+- name: Bun
+  month: March
+  day: 10
+
 - name: Rooster
   month: March
   day: 26
@@ -21,6 +25,10 @@
 - name: Nanya
   month: April
   day: 19
+
+- name: Ryan
+  month: April
+  day: 22
 
 - name: Lucas
   month: May
@@ -49,6 +57,10 @@
 - name: Otis
   month: June
   day: 13
+
+- name: Rook
+  month: June
+  day: 23
 
 - name: tphez
   month: June
@@ -116,6 +128,10 @@
   day: 5
 
 - name: Olga
+  month: December
+  day: 9
+
+- name: MrLizard
   month: December
   day: 9
 
