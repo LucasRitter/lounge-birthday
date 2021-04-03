@@ -1,45 +1,95 @@
-import React from "react"
-import { getRandomEmoji, UpcomingBirthday } from "./utils/birthdays"
-import Twemoji from "react-twemoji"
-import styled from "styled-components"
+import React from 'react'
+import { formatDate, getRandomEmoji, UpcomingBirthday } from './utils/birthdays'
+import Twemoji from 'react-twemoji'
+import styled from 'styled-components'
+import { AnimatePresence, motion } from 'framer-motion'
 
-export const HappyBirthday = ({ names: birthdays }: { names: string[]}) => {
-    if (!birthdays || birthdays.length <= 0)
-        return null
+export const HappyBirthday = ({ names: birthdays }: { names: string[] }) => {
+    if (!birthdays || birthdays.length <= 0) return null
 
     return (
-        <div style={{
-            display: 'flex',
-            gap: 0,
-            flexDirection: 'column',
-            alignItems: 'center',
-            marginTop: 'max(400px, 20vh)',
-            marginBottom: 'max(400px, 20vh)',
-        }}>
-            <Twemoji><h1>
-                {getRandomEmoji()} <span style={{ marginLeft: 24, marginRight: 24 }}>Happy Birthday</span>{getRandomEmoji()}</h1></Twemoji>
-            {birthdays.map(x => <h2>{x}</h2>)}
+        <div
+            style={{
+                display: 'flex',
+                gap: 0,
+                flexDirection: 'column',
+                alignItems: 'center',
+                marginTop: 'max(400px, 20vh)',
+                marginBottom: 'max(400px, 20vh)',
+            }}
+        >
+            <Twemoji>
+                <h1>
+                    {getRandomEmoji()}{' '}
+                    <span style={{ marginLeft: 24, marginRight: 24 }}>
+                        Happy Birthday
+                    </span>
+                    {getRandomEmoji()}
+                </h1>
+            </Twemoji>
+            {birthdays.map((x) => (
+                <h2>{x}</h2>
+            ))}
         </div>
     )
 }
 
-export const Upcoming = ({birthdays}: { birthdays: UpcomingBirthday[]}) => {
-    if (!birthdays || birthdays.length <= 0)
-        return null
+export const Upcoming = ({ birthdays }: { birthdays: UpcomingBirthday[] }) => {
+    if (!birthdays || birthdays.length <= 0) return null
 
-    return <div>
-        <h2 style={{ fontWeight: 800 }}>Upcoming Birthdays</h2>
-        { birthdays.map(x => <Birthday birthday={x} />)}
-    </div>
+    return (
+        <div>
+            <h2 style={{ fontWeight: 800 }}>Upcoming Birthdays</h2>
+            {birthdays.map((x) => (
+                <Birthday birthday={x} />
+            ))}
+        </div>
+    )
 }
 
 const Birthday = ({ birthday }: { birthday: UpcomingBirthday }) => {
+    const [isHovered, setHovered] = React.useState(false)
+
     return (
         <BirthdayContainer>
-            <BirthdayName>{birthday.name} { birthday.nickname && <BirthdayNickname>{birthday.nickname}</BirthdayNickname>}</BirthdayName>
-            <BirthdayDate>
-                { birthday.in === 69 && <Nice>nice</Nice>}
-                <BirthdayIn>{birthday.in} day{birthday.in !== 1 ? 's' : ''}</BirthdayIn>
+            <BirthdayName>
+                {birthday.name}{' '}
+                {birthday.nickname && (
+                    <BirthdayNickname>{birthday.nickname}</BirthdayNickname>
+                )}
+            </BirthdayName>
+            <BirthdayDate
+                onMouseEnter={() => setHovered(true)}
+                onMouseLeave={() => setHovered(false)}
+                layout
+                transition={{
+                    duration: 0.1,
+                }}
+            >
+                <AnimatePresence>
+                    {birthday.in === 69 && <Nice>nice</Nice>}
+                    <BirthdayIn>
+                        {birthday.in} day{birthday.in !== 1 ? 's' : ''}
+                    </BirthdayIn>
+                    {isHovered && (
+                        <motion.div
+                            style={{
+                                marginLeft: 8,
+                            }}
+                            initial={{
+                                opacity: 0,
+                            }}
+                            animate={{
+                                opacity: 0.5,
+                            }}
+                            exit={{
+                                opacity: 0,
+                            }}
+                        >
+                            <BirthdayIn>{formatDate(birthday.date)}</BirthdayIn>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
             </BirthdayDate>
         </BirthdayContainer>
     )
@@ -63,9 +113,10 @@ const BirthdayNickname = styled.span`
     margin-left: 4px;
 `
 
-const BirthdayDate = styled.div`
+const BirthdayDate = styled(motion.div)`
     display: flex;
     flex-direction: row;
+    justify-content: flex-end;
 `
 
 const BirthdayIn = styled.h3`

@@ -22,7 +22,7 @@
     100% {
         color: hsl(360deg, 100%, 50%);
     }
-};
+}
 
 body {
     padding: 32px;
@@ -48,5 +48,3 @@ body {
     width: 100%;
     max-width: 480px;
 }
-
-
