@@ -102,6 +102,13 @@ export const formatDate = (date: Date) => {
 }
 
 const mapNumberEnding = (number: number) => {
+    switch (number) {
+        case 11:
+        case 12:
+        case 13:
+            return 'th'
+    }
+
     const finalNumber = number % 10
 
     switch (finalNumber) {
