@@ -38,8 +38,20 @@ export const getUpcomingBirthdays = (): UpcomingBirthday[] => {
         if (monthNow === month && dayNow === day)
             return { name: x.name, nickname: x.nickname, in: 0 }
             
-        if (monthNow >= month)
-            nextYear = monthNow === month ? dayNow < day : true
+
+        if (monthNow >= month) {
+            if (monthNow === month && dayNow < day) {
+                nextYear = false
+            } else {
+                nextYear = true
+            }
+        }
+        
+        // if (monthNow >= month) {
+        //     if (monthNow <= month && dayNow > day) {
+        //         nextYear = true
+        //     }
+        // }
 
         const birthdayDate = new Date(yearNow + Number(nextYear), month, day)
 
