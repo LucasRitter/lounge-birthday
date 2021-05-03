@@ -108,10 +108,18 @@
   month: September
   day: 13
 
+- name: Boof
+  month: September
+  day: 18
+
 - name: Reina
   nickname: Chocolate Queen
   month: October
   day: 5
+
+- name: Kiri
+  month: October
+  day: 10
 
 - name: Mammoth
   month: October
@@ -148,3 +156,7 @@
 - name: Lust
   month: December
   day: 22
+
+- name: Lucius
+  month: December
+  day: 26
