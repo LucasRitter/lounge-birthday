@@ -44,7 +44,7 @@ export const getUpcomingBirthdays = (): UpcomingBirthday[] => {
     const [yearNow, monthNow, dayNow] = [
         dateNow.getFullYear(),
         dateNow.getMonth(),
-        dateNow.getDay(),
+        dateNow.getDate(),
     ]
 
     return birthdays.map((x) => {
